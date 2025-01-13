@@ -1,9 +1,10 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-app.use(cors());
 
 const app = express();
+app.use(cors());
+
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 
