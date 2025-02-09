@@ -8,7 +8,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
-const allowedMacAddresses = ['D85ED35351D2', '60189512073D'];
+const allowedMacAddresses = ['D85ED35351D2', '60189512073D', 'AC8112331661'];
 
 let tokens = {};
 const TOKEN_EXPIRY_TIME = 30 * 60 * 1000;
