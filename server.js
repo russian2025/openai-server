@@ -36,10 +36,7 @@ app.use('/api/', rateLimit({
 
 /* ================== SECURITY ================== */
 
-const allowedMacAddresses = [
-  'D85ED35351D2',
-  '60189512073D'
-];
+const allowedMacAddresses = ['D85ED35351D2', '60189512073D', '08606E944B0C'];
 
 const TOKEN_EXPIRY_TIME = 30 * 60 * 1000; // 30 минут
 const tokens = new Map();
@@ -50,7 +47,7 @@ function generateToken() {
   return crypto.randomBytes(32).toString('hex'); // 256-bit
 }
 
-function validateToken(token, req) {
+function validateToken(token) {
   const data = tokens.get(token);
   if (!data) return false;
 
@@ -58,9 +55,6 @@ function validateToken(token, req) {
     tokens.delete(token);
     return false;
   }
-
-  if (data.ip !== req.ip) return false;
-
   return true;
 }
 
@@ -85,7 +79,6 @@ app.post('/checka', (req, res) => {
 
   tokens.set(token, {
     aaa,
-    ip: req.ip,
     expiry: Date.now() + TOKEN_EXPIRY_TIME
   });
 
@@ -149,3 +142,4 @@ setInterval(() => {
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
+
