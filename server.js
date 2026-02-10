@@ -73,7 +73,7 @@ function verifySignedMac(mac, timestamp, signature) {
 }
 
 app.post('/checka', (req, res) => {                  // Получение токена
-  const { aaa } = req.body;
+  const { aaa, t, s  } = req.body;
 
   if (!aaa || typeof aaa !== 'string') {
     return res.status(400).json({ error: 'Invalid request' });
@@ -201,3 +201,4 @@ app.post('/api/tts', async (req, res) => {
 app.listen(PORT, () => {                                    // Start
   console.log(`Server running on port ${PORT}`);
 });
+
