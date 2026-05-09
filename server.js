@@ -31,7 +31,7 @@ app.use('/api/', rateLimit({                   // Rate limit для API
   legacyHeaders: false
 }));
 
-const allowedMacAddresses = ['D85ED35351D2', '60189512073D', '08606E944B0C'];
+const allowedMacAddresses = ['D85ED35351D2', '60189512073D', '08606E944B0C', '782BCB9B0A96']; // Ume, Vladic, Asus, Borets Tolea
 
 const TOKEN_EXPIRY_TIME = 30 * 60 * 1000;            // 30 минут
 const tokens = new Map();
